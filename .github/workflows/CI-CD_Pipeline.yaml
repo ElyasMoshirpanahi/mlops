@@ -42,8 +42,16 @@ jobs:
           username: ${{ secrets.AZURE_USERNAME }}
           password: ${{ secrets.AZURE_PASSWORD }}
 
+      - name: Build image
+        run: docker build -t coolsegmenter .
+
       - name: Tag Docker image with ACR URL
-        run: docker tag coolsegmenter ${{ secrets.AZURE_LOGIN_SERVER }}/coolsegmenter
+        run: docker tag coolsegmenter ${{ secrets.AZURE_LOGIN_SERVER }}${{ env.PATH_SEPARATOR }}coolsegmenter
 
       - name: Push Docker image to ACR
-        run: docker push ${{ secrets.AZURE_LOGIN_SERVER }}/coolsegmenter
+        run: docker push ${{ secrets.AZURE_LOGIN_SERVER }}${{ env.PATH_SEPARATOR }}coolsegmenter
+      
+      - uses: azure/webapps-deploy@v2
+        with: 
+          app-name: "fastapisegmenation"
+          images: ${{ secrets.AZURE_LOGIN_SERVER }}${{ env.PATH_SEPARATOR }}coolsegmenter
