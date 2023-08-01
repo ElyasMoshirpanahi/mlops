@@ -15,24 +15,21 @@ jobs:
 
       - name: Add project root to PYTHONPATH
         run: |
-          export PYTHONPATH=$PYTHONPATH:$GITHUB_WORKSPACE
-
-
+          export PYTHONPATH=$PYTHONPATH${{ env.PATH_SEPARATOR }}$GITHUB_WORKSPACE
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
-
+          python -m pip install -r requirements.txt
 
       - name: Testing with pytest
         run: |
-          export PYTHONPATH=$PYTHONPATH:$GITHUB_WORKSPACE
+          export PYTHONPATH=$PYTHONPATH${{ env.PATH_SEPARATOR }}$GITHUB_WORKSPACE
           python src/cli.py download --output-file src/isnet/artifacts/model.pth
           python src/cli.py convert --input-file src/isnet/artifacts/model.pth --output-file src/isnet/artifacts/model.pt --to-torchscript
           pytest src/tests
 
-
       - name: Copy deployment folder # just an example
         run: |
+          mkdir -p deployment runtime
           cp -r deployment/ runtime/
