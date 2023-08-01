@@ -30,4 +30,4 @@ jobs:
           pytest src/tests
 
       - name: Build image
-        run: docker build -t myapp:${GITHUB_REF}
+        run: docker build -t coolsegmenter:latest .
