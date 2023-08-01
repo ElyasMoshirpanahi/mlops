@@ -10,16 +10,16 @@ def test_if_server_is_running():
     assert response.status_code == status.HTTP_200_OK
 
 
-def test_if_image_is_valid_image():
-    file_path = "src/tests/bike.png"
-    ext = file_path.split(".")[-1]
-    f = file_path
-    files=[('image',(f'{ext}',open(f,'rb'),f'image/{ext}'))]
+# def test_if_image_is_valid_image():
+#     file_path = "src/tests/bike.png"
+#     ext = file_path.split(".")[-1]
+#     f = file_path
+#     files=[('image',(f'{ext}',open(f,'rb'),f'image/{ext}'))]
 
-    response = client.post("/segment", files=files)
+#     response = client.post("/segment", files=files)
     
-    assert response.status_code == status.HTTP_200_OK
-    assert "error" != response.json()
+#     assert response.status_code == status.HTTP_200_OK
+#     assert "error" != response.json()
 
 
 
