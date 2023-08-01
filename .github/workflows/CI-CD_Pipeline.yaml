@@ -19,4 +19,4 @@ jobs:
         - name: Testing with pytest
           run: |
             export PYTHONPATH=$(github.workspace)
-            pytest src/test/
+            pytest
