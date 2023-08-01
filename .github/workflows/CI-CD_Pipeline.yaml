@@ -38,6 +38,6 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_USER }}
           password: ${{ secrets.DOCKER_TOKEN }}
-          
+
       - name: Push image to DockerHub
-        run: docker push myimage
+        run: docker push coolsegmenter:latest
