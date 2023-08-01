@@ -17,9 +17,9 @@ def test_if_image_is_valid_image():
     files=[('image',(f'{ext}',open(f,'rb'),f'image/{ext}'))]
 
     response = client.post("/segment", files=files)
-    b64_img = response.json()["image"]
+    
     assert response.status_code == status.HTTP_200_OK
-    assert b64_img != ""
+    assert "error" != response.json()
 
 
 

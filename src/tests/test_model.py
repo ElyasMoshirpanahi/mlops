@@ -3,7 +3,7 @@ from src.isnet.inference import Inference
 import base64
 
 # # Run sample inference
-image_path = 'src/tests/A.png'
+image_path = 'src/tests/bike.png'
 
 def test_inference_model_instantiation():
   inference = Inference()
