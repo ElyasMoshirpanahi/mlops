@@ -30,7 +30,7 @@ jobs:
           pytest src/tests
 
       - name: Build image
-        run: docker build -t coolsegmenter:latest .
+        run: docker build -t coolsegmenter .
 
 
       - name: Login to Docker Hub
@@ -40,4 +40,4 @@ jobs:
           password: ${{ secrets.DOCKER_TOKEN }}
 
       - name: Push image to DockerHub
-        run: docker push coolsegmenter:latest
+        run: docker push coolsegmenter
