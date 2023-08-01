@@ -9,7 +9,7 @@ from src.isnet.isnet import ISNetDIS
 
 def download_model(
     output_file_path: str,
-    url_id: str = "1qt0UYiJmsfO2O8OGHZ7w6d3wiucnJpe3",
+    url_id: str = "1nV57qKuy--d5u1yvkng9aXW1KS4sOpOi",
     quiet: bool = False,
 ) -> None:
     """
