@@ -29,7 +29,5 @@ jobs:
           python src/cli.py convert --input-file src/isnet/artifacts/model.pth --output-file src/isnet/artifacts/model.pt --to-torchscript
           pytest src/tests
 
-      - name: Copy deployment folder # just an example
-        run: |
-          mkdir -p deployment runtime
-          cp -r deployment/ runtime/
+      - name: Build image
+        run: docker build -t myapp:${GITHUB_REF}
