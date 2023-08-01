@@ -27,7 +27,10 @@ jobs:
 
       - name: Testing with pytest
         run: |
-          pytest
+          export PYTHONPATH=$PYTHONPATH:$GITHUB_WORKSPACE
+          python src/cli.py download --output-file src/isnet/artifacts/model.pth
+          python src/cli.py convert --input-file src/isnet/artifacts/model.pth --output-file src/isnet/artifacts/model.pt --to-torchscript
+          pytest src/tests
 
 
       - name: Copy deployment folder # just an example
