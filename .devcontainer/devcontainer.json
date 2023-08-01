@@ -1,0 +1,5 @@
+{
+  "image": "zaubar.azurecr.io/dev-containers/ai_module_base:66689ce",
+  "postStartCommand": "git config --global --add safe.directory ${containerWorkspaceFolder} && bash .devcontainer/scripts/first_time_setup.sh",
+  "runArgs": ["--gpus", "all"]
+}

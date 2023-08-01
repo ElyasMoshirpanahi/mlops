@@ -1,0 +1,26 @@
+name: CD
+
+on:
+  workflow_run:
+    workflows: ["CI"]
+    types: 
+      - completed
+
+jobs:
+  deploy:
+  
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: railwayapp/actions-upload@v1
+    - name: Install Railway
+      run: | 
+        curl -sSL https://raw.githubusercontent.com/railwayapp/cli/master/install.sh | bash
+    
+    
+    - name: Login to Railway
+      run: railway login --token ${{ secrets.RAILWAY_TOKEN }}
+
+      
+    - name: Deploy
+      run: railway up --image myapp:${{ github.ref }}

@@ -1,0 +1,32 @@
+name: CI
+on: push
+
+jobs:
+    build:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v3
+        - name: Set up Python 3.11
+          uses: actions/setup-python@v4
+          with:
+            python-version: "3.11"
+        - name: Install dependencies
+          run: |
+            export PYTHONPATH=$(pwd)
+            python -m pip install --upgrade pip
+            pip install -r requirements.txt
+
+        - name: Build image
+          run: |  
+            docker build -t myapp:${{ github.ref }} .
+
+
+        - uses: docker/login-action@v2
+          with:
+            username: ${{ secrets.DOCKER_USER }}
+            password: ${{ secrets.DOCKER_TOKEN }}
+
+        - run: docker push myapp:${{ github.ref }}
+
+
+    

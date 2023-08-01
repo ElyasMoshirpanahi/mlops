@@ -1,0 +1,13 @@
+# import production requirements
+-r prod.txt
+
+# add development requirements
+tqdm
+pre-commit
+pip-tools
+pytest
+gdown
+sewar
+azureml-defaults
+azureml-inference-server-http
+locust

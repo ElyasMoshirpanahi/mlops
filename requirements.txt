@@ -1,0 +1,11 @@
+fastapi[all]
+uvicorn
+gunicorn
+torch
+torchvision
+gdown
+imageio
+tqdm
+numpy
+pytest
+Requests
