@@ -29,12 +29,13 @@ jobs:
           python src/cli.py convert --input-file src/isnet/artifacts/model.pth --output-file src/isnet/artifacts/model.pt --to-torchscript
           pytest src/tests
 
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
       - name: Build image
         run: docker build -t coolsegmenter .
 
-
-
-      
       - name: Login to ACR
         uses: docker/login-action@v2
         with:
