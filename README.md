@@ -1,5 +1,5 @@
 # Machine Learning Ops Challenge
-
+[![CI workflow](https://img.shields.io/github/actions/workflow/status/docker/login-action/ci.yml?branch=master&label=CI/CD&logo=github&style=flat-square)](https://github.com/ElyasMoshirpanahi/mlops/actions/5732931647)
 This project involved deploying an image segmentation model and setting up CI/CD pipelines.
 
 ## Challenges
