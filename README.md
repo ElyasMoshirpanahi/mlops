@@ -35,10 +35,10 @@ This project involved deploying an image segmentation model and setting up CI/CD
   - [x] Test locally
 - [x] Create a deployment on a realtime endpoint
   - [x] Deploy to cloud 
-  - [ ] Test remotely (Postman)
-- [ ] Create a minimal CI pipeline with GitHub Actions
-  - [ ] Test remotely (GitHub Actions) 
-- [ ] Create a minimal CD pipeline
-  - [ ] Complete CI/CD chain
+  - [x] Test remotely (Postman)
+- [x] Create a minimal CI pipeline with GitHub Actions
+  - [x] Test remotely (GitHub Actions) 
+- [x] Create a minimal CD pipeline
+  - [x] Complete CI/CD chain
 
 Let me know if you would like me to expand or modify any part of this README!
