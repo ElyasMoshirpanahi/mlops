@@ -12,7 +12,6 @@ jobs:
         with:
           python-version: "3.11"
 
-
       - name: Add project root to PYTHONPATH
         run: |
           export PYTHONPATH=$PYTHONPATH${{ env.PATH_SEPARATOR }}$GITHUB_WORKSPACE
